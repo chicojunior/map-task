@@ -4,11 +4,11 @@
 
   angular
     .module('myApp', [])
-    .service('MapFactory', MapFactory);
+    .service('GridService', GridService);
 
-    MapFactory.$inject = ['$http'];
+    GridService.$inject = ['$http'];
 
-    function MapFactory($http) {
+    function GridService($http) {
       var url = "http://localhost:1337/jiujitsuteam.herokuapp.com/teams.json"
       return {
         getAll: function() {
