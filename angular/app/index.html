@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" />
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" />
+    <link rel="stylesheet" href="vendor/Control.Geocoder.css" />
+    <link rel="stylesheet" href="/css/app.css">
+
+    <title>Jiu Jitsu Map</title>
+  </head>
+  <body>
+
+    <div ng-controller="MapController as vm">
+      <h1>Jiu Jitsu Map</h1>
+      <div id="mapid"></div>
+    </div>
+
+    <div class="container" ng-controller="GridController as vm">
+      <div class="pure-g gym-grid">
+        <div class="pure-u-1-4 header">
+          <h3>Escola</h3>
+        </div>
+        <div class="pure-u-1-4 header">
+          <h3>Equipe</h3>
+        </div>
+        <div class="pure-u-1-4 header">
+          <h3>Endereço</h3>
+        </div>
+        <div class="pure-u-1-4 header">
+          <h3>Instrutor</h3>
+        </div>
+      </div>
+
+      <hr>
+
+      <div ng-repeat="gym in vm.gymsDetail">
+        <div class="pure-g gym-grid">
+          <div class="pure-u-1-4">
+            <p>{{ gym.name }}</p>
+          </div>
+          <div class="pure-u-1-4">
+            <p>Greenmile</p>
+          </div>
+          <div class="pure-u-1-4">
+            <p>{{ gym.places[0].gym.address }}</p>
+          </div>
+          <div class="pure-u-1-4">
+            <p>{{ gym.leaders[0].profile.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="vendor/Control.Geocoder.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
